@@ -1,9 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const uri = process.env.DB_CONNECTION_STRING;
+const connection_string = process.env.DB_CONNECTION_STRING;
 
-mongoose.connect(uri);
+mongoose.connect(connection_string);
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
