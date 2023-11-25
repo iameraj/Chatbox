@@ -13,9 +13,22 @@ router // Login page
     .get('/login', (req, res) => {
         res.send('This is login page')
     })
-    .post('/login', (req, res) => {
-        res.send('You have logged in :)')
-    });
+    .post('/login', async (req, res) => {
+        const { username, password } = req.body;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+          }
+
+        const passwordMatch = (password === user.password) ? true:false;
+        if (passwordMatch) {
+            return res.status(200).json({ message: 'You have logged in :)' });
+          } 
+        else {
+            return res.status(401).json({ error: 'Invalid username or password' });
+          }
+        });
 
 router // Signup page
     .get('/signup', (req, res) => {
