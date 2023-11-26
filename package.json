@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node index.js\" \"cd Chatbox-Frontend && npm run dev\""
   },
   "author": "Meraj",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
