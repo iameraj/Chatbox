@@ -1,0 +1,47 @@
+.login-form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #282828; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color: #ebdbb2; 
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    background-color: #458588;
+    color: #ebdbb2;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #83a598;
+  }
+  .signup-instead {
+    color: #458588; /* Gruvbox green color */
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .signup-instead:hover {
+    color: #83a598; /* Gruvbox brighter green color on hover */
+  }
