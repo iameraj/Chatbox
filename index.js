@@ -1,19 +1,19 @@
-require('dotenv').config();
-const express = require('express');
-const db = require('./db');
-const router = require('./router');
+import dotenv from 'dotenv';
+import express, { json } from 'express';
+import router from './router.js';
 
+dotenv.config();
 const app = express();
 const port = process.env.API_PORT;
-const url = process.env.API_URL;
+const host = process.env.API_HOST;
 
-app.use(express.json());
+app.use(json());
 app.use('/', router);
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('Hello from Node.js!');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on ${url}:${port}`);
+app.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
 });
