@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-import { connect, connection } from 'mongoose';
+import pkg from 'mongoose';
+const { connect, connection } = pkg;
 
 dotenv.config();
 const connection_string = process.env.DB_CONNECTION_STRING;
