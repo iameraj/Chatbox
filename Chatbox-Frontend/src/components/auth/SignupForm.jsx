@@ -4,11 +4,11 @@ import "./SignupForm.css"; // Assuming you have a separate CSS file for styling
 const TARGET = "http://127.0.0.1:3002";
 
 function SignupForm({ onLoginInsteadClick }) {
-	const [username, setUsername] = useState("");
+    const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
 
-	const handleSignup = async (e) => {
+    const handleSignup = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await fetch(TARGET + "/signup", {
@@ -32,7 +32,7 @@ function SignupForm({ onLoginInsteadClick }) {
 		}
 	};
 
-	return (
+    return (
 		<div className="signup-form-container">
 			<form className="signup-form" onSubmit={handleSignup}>
 				<label htmlFor="username">Username:</label>
