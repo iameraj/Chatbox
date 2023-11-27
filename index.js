@@ -1,12 +1,15 @@
 import dotenv from 'dotenv';
 import express, { json } from 'express';
 import router from './router.js';
+import cors from 'cors';
+import _ from './db.js';
 
 dotenv.config();
 const app = express();
 const port = process.env.API_PORT;
 const host = process.env.API_HOST;
 
+app.use(cors());
 app.use(json());
 app.use('/', router);
 
