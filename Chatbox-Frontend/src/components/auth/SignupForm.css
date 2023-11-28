@@ -1,12 +1,12 @@
 
 .signup-form-container {
     width: 300px;
-    margin: 0 auto; /* Center the form horizontally */
-    margin-top: 100px; /* Adjust top margin for vertical centering */
+    margin: 0 auto;
+      margin-top: 100px;
     padding: 20px;
-    border: 1px solid #282828; /* Gruvbox background color */
+    border: 1px solid #282828;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .signup-form {
@@ -16,7 +16,7 @@
   
   label {
     margin-bottom: 8px;
-    color: #ebdbb2; /* Gruvbox foreground color */
+    color: #ebdbb2;
   }
   
   input {
@@ -25,8 +25,8 @@
   }
   
   button {
-    background-color: #b8bb26; /* Gruvbox yellow color */
-    color: #282828; /* Gruvbox background color */
+    background-color: #b8bb26;
+      color: #282828;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -34,11 +34,11 @@
   }
   
   button:hover {
-    background-color: #d5c4a1; /* Gruvbox brighter yellow color on hover */
+    background-color: #d5c4a1;
   }
   
   .login-instead {
-    color: #458588; /* Gruvbox green color */
+    color: #458588;
     cursor: pointer;
     text-decoration: underline;
     margin-top: 10px;
@@ -46,6 +46,6 @@
   }
   
   .login-instead:hover {
-    color: #83a598; /* Gruvbox brighter green color on hover */
+    color: #83a598;
   }
   

@@ -1,7 +1,5 @@
-// LoginForm.jsx
-
 import React, { useState } from "react";
-import "./LoginForm.css"; // Assuming you have a separate CSS file for styling
+import "./LoginForm.css";
 
 const LoginForm = ({ onSignupInsteadClick }) => {
     const [username, setUsername] = useState("");
@@ -9,7 +7,7 @@ const LoginForm = ({ onSignupInsteadClick }) => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Perform login logic here (e.g., send data to server, validate credentials)
+        // TODO: Perform login logic here
         console.log("Logging in with:", { username, password });
     };
 

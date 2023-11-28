@@ -35,7 +35,7 @@
     background-color: #83a598;
   }
   .signup-instead {
-    color: #458588; /* Gruvbox green color */
+    color: #458588;
     cursor: pointer;
     text-decoration: underline;
     margin-top: 10px;
@@ -43,5 +43,5 @@
   }
   
   .signup-instead:hover {
-    color: #83a598; /* Gruvbox brighter green color on hover */
+    color: #83a598;
   }
