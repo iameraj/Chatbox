@@ -1,14 +1,34 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
 
+const TARGET = "http://127.0.0.1:3002";
+
 const LoginForm = ({ onSignupInsteadClick }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // TODO: Perform login logic here
-        console.log("Logging in with:", { username, password });
+        try {
+            const response = await fetch(TARGET + "/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+                credentials: "include",
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("Login successful", data.user);
+            } else {
+                console.error("Login failed", data.error);
+            }
+        } catch (error) {
+            console.error("An error occurred during login", error);
+        }
     };
 
     return (
