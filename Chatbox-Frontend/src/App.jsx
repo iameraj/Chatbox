@@ -33,11 +33,20 @@ function App() {
 
         checkAuthenticationStatus();
     }, []);
+
+    const handleLoginSuccess = () => {
+        setLoggedIn(true);
+    };
+    
     return (
         <>
             <Header />
             <div className="container">
-                {loggedIn ? <ChatBox /> : <AuthenticationPage />}
+                {loggedIn ? (
+                    <ChatBox />
+                ) : (
+                    <AuthenticationPage onLoginSuccess={handleLoginSuccess} />
+                )}
             </div>
             <Footer />
         </>

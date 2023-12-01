@@ -3,7 +3,7 @@ import "./LoginForm.css";
 
 const TARGET = "http://127.0.0.1:3002";
 
-const LoginForm = ({ onSignupInsteadClick }) => {
+const LoginForm = ({ onSignupInsteadClick, onLoginSuccess }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,6 +22,7 @@ const LoginForm = ({ onSignupInsteadClick }) => {
             const data = await response.json();
 
             if (response.ok) {
+                onLoginSuccess();
                 console.log("Login successful", data.user);
             } else {
                 console.error("Login failed", data.error);
