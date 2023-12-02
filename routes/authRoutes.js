@@ -25,6 +25,7 @@ router.post("/login", (req, res, next) => {
 // Get user route
 router.get("/whoami", (req, res) => {
     if (req.isAuthenticated()) {
+        res.header("Access-Control-Allow-Credentials", true);
         res.status(200).json({ authenticated: true, user: req.user });
     } else {
         res.status(401).json({ authenticated: false });
@@ -47,7 +48,14 @@ router.post("/signup", async (req, res) => {
 
 // Logout route
 router.post("/logout", (req, res) => {
-    req.logout();
+    req.logout(req.user, (err) => {
+        if (err) {
+            res.status(500).json({
+                success: false,
+                message: "Error during logout",
+            });
+        }
+    });
     res.status(200).json({ success: true, message: "Logged out successfully" });
 });
 
