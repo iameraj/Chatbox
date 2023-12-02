@@ -11,6 +11,9 @@ function SignupForm({ onLoginInsteadClick }) {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
+            if (!(password === password2)) {
+                new Error("Passwords dont match");
+            }
             const response = await fetch(TARGET + "/signup", {
                 method: "POST",
                 headers: {
