@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import routes from "./router.js";
 import session from "express-session";
 import passport from "./utils/passport.js";
+import MongoStore from "connect-mongo";
 import authRoutes from "./routes/authRoutes.js";
 import express, { json } from "express";
 
@@ -16,12 +17,15 @@ const app = express();
 app.use(json());
 
 app.use(
-    session({
-        secret: process.env.SECRET_KEY,
-        resave: false,
-        saveUninitialized: false,
-        cookie: { maxAge: 60 * 60 * 1000, sameSite: "None" },
-    })
+	session({
+		secret: process.env.SECRET_KEY,
+		resave: false,
+		saveUninitialized: false,
+		cookie: { maxAge: 60 * 60 * 1000, sameSite: "None" },
+		store: MongoStore.create({
+			mongoUrl: process.env.DB_CONNECTION_STRING,
+		}),
+	})
 );
 
 app.use(passport.initialize());
