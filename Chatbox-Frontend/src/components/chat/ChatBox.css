@@ -1,22 +1,21 @@
 .chat-box-container {
-    width: 400px;
-    height: 300px;
-    margin: auto; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #282828; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chat-box-content {
-    text-align: center;
-  }
-  
-  .chat-box-content p {
-    color: #ebdbb2; 
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
+	width: 400px;
+	height: 300px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #282828;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box-content {
+	text-align: center;
+}
+
+.chat-box-content p {
+	color: #ebdbb2;
+	font-size: 16px;
+	font-weight: bold;
+}

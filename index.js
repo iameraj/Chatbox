@@ -17,32 +17,25 @@ const app = express();
 app.use(json());
 
 app.use(
-	session({
-		secret: process.env.SECRET_KEY,
-		resave: false,
-		saveUninitialized: false,
-		cookie: { maxAge: 60 * 60 * 1000, sameSite: "None" },
-		store: MongoStore.create({
-			mongoUrl: process.env.DB_CONNECTION_STRING,
-		}),
-	})
+    session({
+        secret: process.env.SECRET_KEY,
+        resave: false,
+        saveUninitialized: false,
+        cookie: { maxAge: 60 * 60 * 1000 },
+        store: MongoStore.create({
+            mongoUrl: process.env.DB_CONNECTION_STRING,
+        }),
+    }),
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-const allowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
 app.use(
     cors({
-        origin: (origin, callback) => {
-            if (!origin || allowedOrigins.includes(origin)) {
-                callback(null, true);
-            } else {
-                callback(new Error("Not allowed by CORS"));
-            }
-        },
+        origin: "http://127.0.0.1:5173",
         credentials: true,
-    })
+    }),
 );
 
 app.use("/auth", authRoutes);

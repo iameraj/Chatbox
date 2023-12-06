@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
+import { setCookie, removeCookie } from "../../utils/cookieFuncs";
 
 const TARGET = "http://127.0.0.1:3002";
 
@@ -23,6 +24,20 @@ const LoginForm = ({ onSignupInsteadClick, onLoginSuccess }) => {
 
             if (response.ok) {
                 onLoginSuccess();
+
+                const connectSidCookie = document.cookie
+                    .split("; ")
+                    .find((cookie) => cookie.startsWith("connect.sid="));
+
+                if (connectSidCookie) {
+                    removeCookie(connect.sid);
+                    const connectSidValue = connectSidCookie.split("=")[1];
+                    setCookie("connect.sid", connectSidValue);
+                    console.log("cookie was set", connectSidCookie);
+                } else {
+                    console.log("Cookie not found");
+                }
+
                 console.log("Login successful", data.user);
             } else {
                 console.error("Login failed", data.error);

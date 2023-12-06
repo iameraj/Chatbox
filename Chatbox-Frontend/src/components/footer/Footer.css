@@ -1,15 +1,14 @@
 .footer-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #282828; /* Gruvbox background color */
-    padding: 10px;
-    text-align: center;
-    color: #928374; /* Gruvbox comment color */
-  }
-  
-  .footer-content {
-    font-size: 14px;
-  }
-  
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #282828; /* Gruvbox background color */
+	padding: 10px;
+	text-align: center;
+	color: #928374; /* Gruvbox comment color */
+}
+
+.footer-content {
+	font-size: 14px;
+}
