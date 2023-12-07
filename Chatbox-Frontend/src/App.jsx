@@ -38,20 +38,20 @@ function App() {
 	}, []);
 
 	const handleLoginSuccess = async () => {
-        try {
-            const respose = await fetch(TARGET + "/auth/whoami",{
-                method: "GET",
-                credentials: "include"
-            });
+		try {
+			const respose = await fetch(TARGET + "/auth/whoami", {
+				method: "GET",
+				credentials: "include",
+			});
 
-            if (respose.ok){
-                const data = await respose.json();
-                setUserId(data.user.username);
-                setLoggedIn(true);
-            }
-        } catch(error) {
-            console.error("Error fetching user data", error);
-        }
+			if (respose.ok) {
+				const data = await respose.json();
+				setUserId(data.user.username);
+				setLoggedIn(true);
+			}
+		} catch (error) {
+			console.error("Error fetching user data", error);
+		}
 	};
 
 	return (
