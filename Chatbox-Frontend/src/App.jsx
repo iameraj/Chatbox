@@ -21,7 +21,7 @@ function App() {
 
 				if (response.ok) {
 					const data = await response.json();
-					setUserId(data.user.id);
+					setUserId(data.user.username);
 					setLoggedIn(true);
 				} else {
 					setLoggedIn(false);
