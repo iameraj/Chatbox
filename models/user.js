@@ -28,8 +28,6 @@ userSchema.pre("save", async function (next) {
 	}
 });
 
-const User = model("User", userSchema);
-
 userSchema.methods.addFriend = async function (friendId) {
 	if (!this.friends) {
 		this.friends = [];
@@ -39,5 +37,7 @@ userSchema.methods.addFriend = async function (friendId) {
 		await this.save();
 	}
 };
+
+const User = model("User", userSchema);
 
 export default User;
