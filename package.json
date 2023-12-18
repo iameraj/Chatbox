@@ -6,7 +6,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "concurrently \"nodemon index.js\" \"cd Chatbox-Frontend && npm run dev\""
+		"start": "concurrently \"nodemon index.js\" \"cd Chatbox-Frontend && npm run dev\"",
+		"format": "npx prettier . --write"
 	},
 	"author": "Meraj",
 	"license": "ISC",
