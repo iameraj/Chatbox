@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import session from "express-session";
 import passport from "./utils/passport.js";
-import MongoStore from "connect-mongo";
 import authRoutes from "./routes/authRoutes.js";
 import friendRoutes from "./routes/friendRoutes.js";
 import peopleRoutes from "./routes/peopleRoutes.js";
@@ -23,9 +22,6 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: { maxAge: 60 * 60 * 1000 },
-        store: MongoStore.create({
-            mongoUrl: process.env.DB_CONNECTION_STRING,
-        }),
     }),
 );
 
