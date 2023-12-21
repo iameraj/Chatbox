@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import session from "express-session";
 import passport from "./utils/passport.js";
 import authRoutes from "./routes/authRoutes.js";
-import friendRoutes from "./routes/friendRoutes.js";
+import friendRequestRoutes from "./routes/friendRequestRoutes.js";
 import peopleRoutes from "./routes/peopleRoutes.js";
 import express, { json } from "express";
 
@@ -36,7 +36,7 @@ app.use(
 );
 
 app.use("/auth", authRoutes);
-app.use("/friend-requests", friendRoutes);
+app.use("/friend-requests", friendRequestRoutes);
 app.use("/", peopleRoutes);
 
 app.get("/", (_, res) => {
