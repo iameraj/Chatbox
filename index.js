@@ -17,22 +17,22 @@ const app = express();
 app.use(json());
 
 app.use(
-    session({
-        secret: process.env.SECRET_KEY,
-        resave: false,
-        saveUninitialized: false,
-        cookie: { maxAge: 60 * 60 * 1000 },
-    }),
+	session({
+		secret: process.env.SECRET_KEY,
+		resave: false,
+		saveUninitialized: false,
+		cookie: { maxAge: 60 * 60 * 1000 },
+	}),
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(
-    cors({
-        origin: "http://127.0.0.1:5173",
-        credentials: true,
-    }),
+	cors({
+		origin: "http://127.0.0.1:5173",
+		credentials: true,
+	}),
 );
 
 app.use("/auth", authRoutes);
@@ -40,9 +40,9 @@ app.use("/friend-requests", friendRoutes);
 app.use("/", peopleRoutes);
 
 app.get("/", (_, res) => {
-    res.send("Hello from Node.js!");
+	res.send("Hello from Node.js!");
 });
 
 app.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+	console.log(`Server is running on http://${host}:${port}`);
 });
