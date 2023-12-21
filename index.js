@@ -4,9 +4,10 @@ import dotenv from "dotenv";
 import session from "express-session";
 import passport from "./utils/passport.js";
 import authRoutes from "./routes/authRoutes.js";
-import friendRequestRoutes from "./routes/friendRequestRoutes.js";
+import friendRoutes from "./routes/friendRoutes.js";
 import peopleRoutes from "./routes/peopleRoutes.js";
 import express, { json } from "express";
+import friendRequestRoutes from "./routes/friendRequestRoutes.js";
 
 dotenv.config();
 const port = process.env.API_PORT;
@@ -37,6 +38,7 @@ app.use(
 
 app.use("/auth", authRoutes);
 app.use("/friend-requests", friendRequestRoutes);
+app.use("/friends", friendRoutes);
 app.use("/", peopleRoutes);
 
 app.get("/", (_, res) => {
