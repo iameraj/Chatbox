@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ChatBox from "./components/chat/ChatBox";
 import AuthenticationPage from "./components/auth/AuthentificationPage";
+import ReactLoading from "react-loading";
 import React, { useState, useEffect } from "react";
 
 const TARGET = "http://127.0.0.1:3002";
@@ -10,10 +11,12 @@ const TARGET = "http://127.0.0.1:3002";
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userId, setUserId] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		const checkAuthenticationStatus = async () => {
 			try {
+				setIsLoading(true);
 				const response = await fetch(TARGET + "/auth/whoami", {
 					method: "GET",
 					credentials: "include", // includes the cookies in the request
@@ -26,6 +29,7 @@ function App() {
 				} else {
 					setLoggedIn(false);
 				}
+				setIsLoading(false);
 			} catch (error) {
 				console.error(
 					"Error checking authentication status lol:",
@@ -39,6 +43,7 @@ function App() {
 
 	const handleLoginSuccess = async () => {
 		try {
+			setIsLoading(true);
 			const respose = await fetch(TARGET + "/auth/whoami", {
 				method: "GET",
 				credentials: "include",
@@ -49,11 +54,24 @@ function App() {
 				setUserId(data.user.username);
 				setLoggedIn(true);
 			}
+			setIsLoading(false);
 		} catch (error) {
 			console.error("Error fetching user data", error);
 		}
 	};
 
+	while (isLoading) {
+		return (
+			<div className="container">
+				<ReactLoading
+					type="cylon"
+					color="#b8bb26"
+					height={100}
+					width={50}
+				/>
+			</div>
+		);
+	}
 	return (
 		<>
 			<Header />
