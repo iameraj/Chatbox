@@ -4,10 +4,14 @@
 	left: 50%;
 	width: 80%;
 	transform: translateX(-50%);
-	background-color: #282828; /* Gruvbox background color */
+	background-color: var(--color-two);
+	border: 1px solid var(--color-three);
 	border-radius: 15px;
 	padding: 10px 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a floating effect */
+	box-shadow:
+		rgba(0, 0, 0, 0.4) 0px 2px 4px,
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+		rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .header-content {
@@ -15,7 +19,7 @@
 }
 
 .chatbox-text {
-	color: #b8bb26; /* Gruvbox yellow color */
+	color: var(--color-three);
 	font-size: 18px;
 	font-weight: bold;
 }

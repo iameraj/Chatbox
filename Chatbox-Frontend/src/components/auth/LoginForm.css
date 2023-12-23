@@ -1,10 +1,16 @@
+@import "../../themeVariables.css";
+
 .login-form-container {
 	width: 300px;
 	margin: 0 auto;
 	padding: 20px;
-	border: 1px solid #282828;
+	border: 1px solid var(--color-three);
 	border-radius: 15px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow:
+		rgba(0, 0, 0, 0.4) 0px 2px 4px,
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+		rgba(0, 0, 0, 0.2) -3px -3px 0px inset;
+	background-color: var(--color-two);
 }
 
 .login-form {
@@ -14,34 +20,34 @@
 
 label {
 	margin-bottom: 8px;
-	color: #ebdbb2;
 }
 
 input {
+	border: 1px solid var(--color-four);
+	border-radius: 4px;
 	padding: 8px;
 	margin-bottom: 16px;
 }
+input:focus {
+	border: 1px solid var(--color-three);
+	outline: none;
+}
 
-button {
-	background-color: #458588;
-	color: #ebdbb2;
+.login-form > button {
+	background-color: var(--color-three);
 	padding: 10px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
 }
 
-button:hover {
-	background-color: #83a598;
+.login-form > button:hover {
+	background-color: var(--color-four);
 }
 .signup-instead {
-	color: #458588;
+	color: var(--color-three);
 	cursor: pointer;
 	text-decoration: underline;
 	margin-top: 10px;
 	text-align: center;
-}
-
-.signup-instead:hover {
-	color: #83a598;
 }

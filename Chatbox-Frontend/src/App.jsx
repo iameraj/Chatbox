@@ -63,12 +63,7 @@ function App() {
 	while (isLoading) {
 		return (
 			<div className="container">
-				<ReactLoading
-					type="cylon"
-					color="#b8bb26"
-					height={100}
-					width={50}
-				/>
+				<ReactLoading type="cylon" height={300} width={300} />
 			</div>
 		);
 	}
