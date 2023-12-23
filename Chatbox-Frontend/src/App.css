@@ -1,6 +1,11 @@
+@import "./themeVariables.css";
 .container {
 	width: 100vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+ReactLoading {
+	color: var(--color-three);
 }
