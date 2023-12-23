@@ -6,6 +6,7 @@ import passport from "./utils/passport.js";
 import authRoutes from "./routes/authRoutes.js";
 import friendRoutes from "./routes/friendRoutes.js";
 import peopleRoutes from "./routes/peopleRoutes.js";
+import messagingRoutes from "./routes/messagingRoutes.js";
 import express, { json } from "express";
 import friendRequestRoutes from "./routes/friendRequestRoutes.js";
 
@@ -39,6 +40,7 @@ app.use(
 app.use("/auth", authRoutes);
 app.use("/friend-requests", friendRequestRoutes);
 app.use("/friends", friendRoutes);
+app.use("/messages", messagingRoutes);
 app.use("/", peopleRoutes);
 
 app.get("/", (_, res) => {
