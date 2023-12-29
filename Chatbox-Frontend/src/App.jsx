@@ -35,6 +35,7 @@ function App() {
 					"Error checking authentication status lol:",
 					error,
 				);
+				setIsLoading(false);
 			}
 		};
 
