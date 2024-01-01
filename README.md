@@ -11,7 +11,7 @@ Its a messaging app
 DB_CONNECTION_STRING=mongodb://localhost:27017 # Replace this with your connection string
 API_PORT=3002
 API_HOST=127.0.0.1
-SECRET_KEY=Replace_this_with_a_random_string 
+SECRET_KEY=Replace_this_with_a_random_string
 
 ```
 
