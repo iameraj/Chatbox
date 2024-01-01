@@ -4,6 +4,7 @@ import { hash } from "bcrypt";
 const userSchema = new Schema({
 	username: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
+	email: { type: String, required: true, unique: true },
 	friends: {
 		type: [
 			{
@@ -13,6 +14,7 @@ const userSchema = new Schema({
 		],
 		default: [],
 	},
+	themeColor: { type: String, default: getRandomHexColor },
 });
 
 userSchema.pre("save", async function (next) {
@@ -25,6 +27,9 @@ userSchema.pre("save", async function (next) {
 		next();
 	} catch (error) {
 		next(error);
+	}
+	if (!this.themeColor) {
+		this.themeColor = getRandomHexColor();
 	}
 });
 
@@ -41,3 +46,13 @@ userSchema.methods.addFriend = async function (friendId) {
 const User = model("User", userSchema);
 
 export default User;
+
+// Returns a random color to assign as user theme...
+function getRandomHexColor() {
+	var letters = "0123456789ABCDEF";
+	var color = "#";
+	for (var i = 0; i < 6; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
