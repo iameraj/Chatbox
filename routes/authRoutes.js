@@ -1,5 +1,6 @@
 import { Router } from "express";
 import passport from "../utils/passport.js";
+import User from "../models/user.js";
 const router = Router();
 
 // Login route
@@ -35,8 +36,8 @@ router.get("/whoami", (req, res) => {
 //Signup route
 router.post("/signup", async (req, res) => {
 	try {
-		const { username, password } = req.body;
-		const newUser = new User({ username, password });
+		const { username, password, email } = req.body;
+		const newUser = new User({ username, password, email });
 		await newUser.save();
 		res.status(201).json({ success: true, user: newUser });
 	} catch (error) {
