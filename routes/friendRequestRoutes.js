@@ -43,20 +43,32 @@ router.post("/send", async (req, res) => {
 router.post("/accept", async (req, res) => {
 	// Implementation for accepting a friend request
 	try {
-		const userObj = req.user;
-		const { friendId } = req.body;
+		const { FriendRequestId } = req.body;
 
-		if (!friendId) {
+		if (!FriendRequestId) {
 			return res
 				.status(400)
-				.json({ error: "Friend ID is required in the request body" });
+				.json({ error: "Expected Friend Request, got none" });
 		}
-		const friendObj = await User.findById(friendId);
-		if (!friendObj) {
-			return res.status(400).json({ error: "Friend Id is Invalid" });
+		const friendReq = await FriendRequest.findById(FriendRequestId);
+		if (!friendReq) {
+			return res
+				.status(400)
+				.json({ error: "Friend Request Id is Invalid" });
 		}
-		await userObj.addFriend(friendId);
-		await friendObj.addFriend(friendId);
+		const userObj = await User.findById(friendReq.receiver);
+		const friendObj = await User.findById(friendReq.sender);
+
+		if (!userObj || !friendObj) {
+			return res.status(400).json({
+				error: "Either sender or receiver wasn't found",
+			});
+		}
+
+		await userObj.addFriend(friendReq.sender);
+		await friendObj.addFriend(friendReq.receiver);
+
+		await friendReq.deleteOne();
 
 		return res.status(200).json({ success: true });
 	} catch (error) {
