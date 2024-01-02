@@ -10,7 +10,7 @@ def create_dummy_accounts(num_requests):
 
     for _ in range(num_requests):
         username = fake.user_name()
-        email = fake.email()
+        email = username + "@example.com" 
         payload = {"username": username, "password": "pass", "email": email}
 
         response = requests.post(url, json=payload, headers=headers)
