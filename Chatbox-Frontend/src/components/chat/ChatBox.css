@@ -1,16 +1,15 @@
 .chat-box-container {
-	width: 400px;
-	height: 647px;
+	width: 300px;
+	height: 400px;
 	margin: auto;
 	display: flexbox;
 	justify-content: center;
-	background-color: var(--color-two);
-	border: 1px solid var(--color-three);
+	background-color: var(--color-four);
+	border: 5px solid var(--color-four);
 	border-radius: 15px;
 	box-shadow:
 		rgba(0, 0, 0, 0.4) 0px 2px 4px,
-		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-		rgba(0, 0, 0, 0.2) -3px -3px 0px inset;
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 }
 
 .chat-box-content {
