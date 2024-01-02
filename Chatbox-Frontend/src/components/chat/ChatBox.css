@@ -2,8 +2,7 @@
 	width: 400px;
 	height: 647px;
 	margin: auto;
-	display: flex;
-	align-items: center;
+	display: flexbox;
 	justify-content: center;
 	background-color: var(--color-two);
 	border: 1px solid var(--color-three);
