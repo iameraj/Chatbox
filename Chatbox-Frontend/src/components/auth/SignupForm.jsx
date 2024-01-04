@@ -5,6 +5,7 @@ const TARGET = "http://127.0.0.1:3002";
 
 function SignupForm({ onLoginInsteadClick }) {
 	const [username, setUsername] = useState("");
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
 
@@ -22,6 +23,7 @@ function SignupForm({ onLoginInsteadClick }) {
 				credentials: "include",
 				body: JSON.stringify({
 					username,
+					email,
 					password,
 				}),
 			});
@@ -48,6 +50,14 @@ function SignupForm({ onLoginInsteadClick }) {
 					required
 				/>
 
+				<label htmlFor="email">Email:</label>
+				<input
+					type="text"
+					id="email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+					required
+				/>
 				<label htmlFor="password">Password:</label>
 				<input
 					type="password"
