@@ -1,0 +1,5 @@
+.pages-container {
+	background-color: var(--color-two);
+	border-radius: 10px;
+	flex: 1;
+}
