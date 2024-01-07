@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import generateProfilePicture from "../utils/profilePictureGenerator.js";
 import { hash } from "bcrypt";
 
 const userSchema = new Schema({
@@ -15,6 +16,7 @@ const userSchema = new Schema({
 		default: [],
 	},
 	themeColor: { type: String, default: getRandomHexColor },
+	profilePicture: { data: Buffer, type: String },
 });
 
 userSchema.pre("save", async function (next) {
@@ -24,12 +26,17 @@ userSchema.pre("save", async function (next) {
 		}
 		const hashedPassword = await hash(this.password, 10);
 		this.password = hashedPassword;
+		if (!this.themeColor) {
+			this.themeColor = getRandomHexColor();
+			next();
+		}
+		this.profilePicture = await generateProfilePicture(
+			this.username,
+			this.themeColor,
+		);
 		next();
 	} catch (error) {
 		next(error);
-	}
-	if (!this.themeColor) {
-		this.themeColor = getRandomHexColor();
 	}
 });
 
@@ -40,6 +47,21 @@ userSchema.methods.addFriend = async function (friendId) {
 	if (!this.friends.includes(friendId)) {
 		this.friends.push(friendId);
 		await this.save();
+	}
+};
+
+userSchema.methods.addProfilePicture = async function () {
+	try {
+		if (!this.profilePicture) {
+			this.profilePicture = "";
+		}
+		this.profilePicture = await generateProfilePicture(
+			this.username,
+			this.themeColor,
+		);
+		await this.save();
+	} catch (error) {
+		console.error("Error in addProfilePicture:", error);
 	}
 };
 

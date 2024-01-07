@@ -13,4 +13,17 @@ router.get("/everyone", async (_req, res) => {
 	}
 });
 
+router.post("/getpic", async (req, res) => {
+	// Implementation for generating profile pic
+	try {
+		const user = req.user;
+		await user.addProfilePicture();
+
+		return res.status(200).json({ success: true, user: user });
+	} catch (error) {
+		console.log("Internal server Error", error);
+		return res.status(500).json({ error: "Internal Server Error" });
+	}
+});
+
 export default router;
