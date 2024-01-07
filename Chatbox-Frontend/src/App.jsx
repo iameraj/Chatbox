@@ -10,7 +10,6 @@ const TARGET = "http://127.0.0.1:3002";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [userId, setUserId] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
@@ -51,8 +50,6 @@ function App() {
 			});
 
 			if (respose.ok) {
-				const data = await respose.json();
-				setUserId(data.user.username);
 				setLoggedIn(true);
 			}
 			setIsLoading(false);
@@ -73,7 +70,7 @@ function App() {
 			<Header />
 			<div className="container">
 				{loggedIn ? (
-					<ChatBox userId={userId} />
+					<ChatBox />
 				) : (
 					<AuthenticationPage onLoginSuccess={handleLoginSuccess} />
 				)}

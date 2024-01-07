@@ -5,7 +5,7 @@ import FriendsPage from "../pages/FriendsPage";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
 
-const ChatBox = ({ userId }) => {
+const ChatBox = () => {
 	const [selectedPage, setSelectedPage] = useState("home");
 
 	const renderPage = () => {
