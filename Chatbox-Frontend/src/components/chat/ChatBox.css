@@ -17,7 +17,7 @@
 	text-align: center;
 	display: flex;
 	flex: 1;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .chat-box-content p {

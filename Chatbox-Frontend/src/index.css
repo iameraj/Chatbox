@@ -11,6 +11,16 @@
 	text-rendering: optimizeLegibility;
 }
 
+::-webkit-scrollbar {
+	width: 2px;
+}
+::-webkit-scrollbar-thumb {
+	display: none;
+}
+::-webkit-scrollbar-corner {
+	display: none;
+}
+
 body {
 	margin: 0;
 	display: flex;

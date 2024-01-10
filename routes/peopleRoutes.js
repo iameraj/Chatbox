@@ -26,4 +26,20 @@ router.post("/getpic", async (req, res) => {
 	}
 });
 
+router.get("/who/:userId", async (req, res) => {
+	const requestedUserId = req.params.userId;
+
+	const user = await User.findById(requestedUserId);
+
+	if (user) {
+		const userSubset = {
+			username: user.username,
+			profilePicture: user.profilePicture,
+		};
+
+		res.status(200).json({ user: userSubset });
+	} else {
+		res.status(404).json({ message: "User not found" });
+	}
+});
 export default router;

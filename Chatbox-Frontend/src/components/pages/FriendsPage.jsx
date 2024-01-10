@@ -1,16 +1,14 @@
 // FriendsPage.js
-
-import "./pages.css";
-
+import FriendList from "./FriendList";
 import React from "react";
 
-function FriendsPage() {
+const FriendsPage = () => {
 	return (
 		<div className="pages-container">
 			<h2>Friends Page</h2>
-			{/* Add your list of friends and friend requests here */}
+			<FriendList />
 		</div>
 	);
-}
+};
 
 export default FriendsPage;

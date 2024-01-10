@@ -27,7 +27,12 @@ router.post("/login", (req, res, next) => {
 router.get("/whoami", (req, res) => {
 	if (req.isAuthenticated()) {
 		res.header("Access-Control-Allow-Credentials", true);
-		res.status(200).json({ authenticated: true, user: req.user });
+		const userSubset = {
+			username: req.user.username,
+			email: req.user.email,
+			profilePicture: req.user.profilePicture,
+		};
+		res.status(200).json({ authenticated: true, user: userSubset });
 	} else {
 		res.status(401).json({ authenticated: false });
 	}
