@@ -17,17 +17,18 @@
 .friend-item {
 	display: flex;
 	padding: 7px;
-	background-color: var(--color-four);
 	color: var(--color-three);
 	margin: 5px;
-	border: 2px solid var(--color-three);
+	border: 1px solid var(--color-three);
 	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .friend-item > img {
 	height: 30px;
 	width: 30px;
 	margin-right: 10px;
 	border-radius: 50%;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 hr {

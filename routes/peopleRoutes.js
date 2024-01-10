@@ -35,6 +35,7 @@ router.get("/who/:userId", async (req, res) => {
 		const userSubset = {
 			username: user.username,
 			profilePicture: user.profilePicture,
+			themeColor: user.themeColor,
 		};
 
 		res.status(200).json({ user: userSubset });
