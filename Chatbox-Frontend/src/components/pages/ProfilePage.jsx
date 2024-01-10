@@ -5,6 +5,7 @@ const TARGET = "http://127.0.0.1:3002";
 function ProfilePage() {
 	const [user, setUser] = useState(null);
 	const [username, setUsername] = useState("User");
+	const [image, setImage] = useState(null);
 
 	useEffect(() => {
 		// Fetch user data from the API
@@ -17,6 +18,7 @@ function ProfilePage() {
 				const data = await response.json();
 				setUser(data.user);
 				setUsername(data.user.username);
+				setImage(data.user.profilePicture);
 			} catch (error) {
 				console.error("Error fetching user data:", error);
 			}
@@ -26,12 +28,28 @@ function ProfilePage() {
 	}, []); // Run the effect only once on component mount
 
 	// Set background color based on the user's themeColor
-	const backgroundColor = user ? user.themeColor : "var(--color-two)";
 	return (
-		<div
-			className="pages-container"
-			style={{ backgroundColor: backgroundColor }}
-		>
+		<div className="pages-container">
+			{image && (
+				<div
+					style={{
+						width: "100px", // Set your desired width and height
+						height: "100px",
+						borderRadius: "50%",
+						overflow: "hidden",
+					}}
+				>
+					<img
+						src={image}
+						alt="ProfilePicture"
+						style={{
+							width: "100%",
+							height: "100%",
+							objectFit: "cover",
+						}}
+					/>
+				</div>
+			)}
 			<h2>Hi! {username}</h2>
 			Lorem ipsum dolor sit amet, officia excepteur ex fugiat
 			reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
