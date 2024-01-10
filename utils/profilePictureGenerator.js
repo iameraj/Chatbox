@@ -1,29 +1,25 @@
 import { createCanvas } from "canvas";
 
-async function generateProfilePicture(themeColor, username) {
+async function generateProfilePicture(username, themeColor) {
 	try {
 		const canvas = createCanvas(200, 200);
-		const ctx = canvas.getContext("2d");
+		const context = canvas.getContext("2d");
 
-		console.log("Generating image...");
-		// Set background color
-		ctx.fillStyle = themeColor;
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		// Fill the background
+		context.fillStyle = themeColor;
+		context.fillRect(0, 0, canvas.width, canvas.height);
 
-		// Set text properties
-		ctx.font = "40px Arial";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.textBaseline = "middle";
-
-		// Display user's first two initials
+		// Add text to center
+		//  Extract initals from user like below
 		const initials = username.substring(0, 2).toUpperCase();
-		ctx.fillText(initials, canvas.width / 2, canvas.height / 2);
+		context.fillStyle = "white";
+		context.font = "42px Arial";
+		context.textAlign = "center";
+		context.textBaseline = "middle";
+		context.fillText(initials, canvas.width / 2, canvas.height / 2);
 
-		// Convert the canvas to a data URL (JPEG format)
+		// Convert to data url and return it
 		const dataUrl = canvas.toDataURL("image/jpeg");
-
-		console.log("Image generated successfully!");
 		return dataUrl;
 	} catch (error) {
 		console.error("Error in generateProfilePicture:", error);
