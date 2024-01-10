@@ -81,7 +81,7 @@ function backgroundColor(hexColor) {
 			"#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
 		// Calculate darker color
-		const darkenColor = (color) => Math.round(color * 0.9);
+		const darkenColor = (color) => Math.round(color * 0.7);
 
 		// Get RGB values
 		const { r, g, b } = hexToRgb(hexColor);
