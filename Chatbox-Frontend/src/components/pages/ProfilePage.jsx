@@ -3,7 +3,6 @@ import "./pages.css";
 
 const TARGET = "http://127.0.0.1:3002";
 function ProfilePage() {
-	const [user, setUser] = useState(null);
 	const [username, setUsername] = useState("User");
 	const [email, setEmail] = useState("Not provided");
 	const [image, setImage] = useState(null);
@@ -17,7 +16,6 @@ function ProfilePage() {
 					credentials: "include", // includes the cookies in the request
 				});
 				const data = await response.json();
-				setUser(data.user);
 				setUsername(data.user.username);
 				setEmail(data.user.email);
 				setImage(data.user.profilePicture);
@@ -29,7 +27,6 @@ function ProfilePage() {
 		fetchData();
 	}, []); // Run the effect only once on component mount
 
-	// Set background color based on the user's themeColor
 	return (
 		<div className="pages-container">
 			<div style={{ display: "flex", alignItems: "center" }}>

@@ -8,6 +8,27 @@
 	text-align: left;
 	padding-left: 5px;
 }
+.friend-list-container {
+	background-color: var(--color-two);
+	border-radius: 10px;
+	padding: 7px;
+	display: flexbox;
+}
+.friend-item {
+	display: flex;
+	padding: 7px;
+	background-color: var(--color-four);
+	color: var(--color-three);
+	margin: 5px;
+	border: 2px solid var(--color-three);
+	border-radius: 10px;
+}
+.friend-item > img {
+	height: 30px;
+	width: 30px;
+	margin-right: 10px;
+	border-radius: 50%;
+}
 
 hr {
 	width: 90%;
