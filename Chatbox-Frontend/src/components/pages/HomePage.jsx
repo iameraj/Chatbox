@@ -1,8 +1,5 @@
-// HomePage.js
-
-import "./pages.css";
-
 import React from "react";
+import "./pages.css";
 
 function HomePage() {
 	return (
