@@ -13,7 +13,7 @@ async function generateProfilePicture(username, themeColor) {
 		//  Extract initals from user like below
 		const initials = username.substring(0, 2).toUpperCase();
 		context.fillStyle = "white";
-		context.font = "42px Arial";
+		context.font = "72px Arial";
 		context.textAlign = "center";
 		context.textBaseline = "middle";
 		context.fillText(initials, canvas.width / 2, canvas.height / 2);
